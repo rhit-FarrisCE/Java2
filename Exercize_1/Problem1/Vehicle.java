@@ -3,7 +3,7 @@ public abstract class Vehicle {
     double tankSize;
     double fuelConsumption;
 
-    public Vehicle (String modelName, String company, String owner, String engineType, double tankSize, double fuelConsuption){
+    public Vehicle (String modelName, String company, String owner, String engineType, double tankSize, double fuelConsumption){
         this.modelName = modelName;
         this.company = company;
         this.owner = owner;
@@ -13,14 +13,16 @@ public abstract class Vehicle {
     }
 
     public String toString(){
-        return "";
+        return "ModelName: " + modelName + ", Company: " + company + ", Owner: " + owner + ", EngineType: " + engineType + ", TankSize: " + tankSize + ", FuelConsumption: " + fuelConsumption;
     }
 
-    public int MovibleDistance(){
-        return tankSize / fuelConsumption;
+    public double movableDistance(){
+        return tankSize * fuelConsumption;
     }
 
     abstract double costFor100Km(PetroleumPrice pp);
 
-    abstract setAirConditionON();
+    abstract void setAirConditionON();
+
+    abstract void setAirConditionOFF();
 }

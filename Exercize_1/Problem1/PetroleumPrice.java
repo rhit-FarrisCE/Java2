@@ -1,12 +1,17 @@
 public class PetroleumPrice{
     static double gasolinePrice = 128.7;
     static double dieselPrice = 105.7;
+
+    public PetroleumPrice(double gasolinePrice, double dieselPrice){
+        this.gasolinePrice = gasolinePrice;
+        this.dieselPrice = dieselPrice;
+    }
     
-    public static getGasolineCost(double amountOfGas){
+    public double getGasolineCost(double amountOfGas){
         return amountOfGas * gasolinePrice;
     }
 
-    public static getDieselCost(double amountOfDiesel){
+    public double getDieselCost(double amountOfDiesel){
         return amountOfDiesel * dieselPrice;
     }
 }

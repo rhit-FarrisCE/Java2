@@ -1,36 +1,33 @@
-public class Car extends Vehicle {
+public class Truck extends Vehicle {
     int numberOfSeats;
+    double power;
     boolean airConditionOn;
 
-    public Car (String modelName, String company, String owner, String engineType, double tankSize, double fuelConsumption, int numberOfSeats){
+    public Truck (String modelName, String company, String owner, String engineType, double tankSize, double fuelConsumption, int numberOfSeats, double power){
         super(modelName, company, owner, engineType, tankSize, fuelConsumption);
         this.numberOfSeats = numberOfSeats;
+        this.power = power;
         this.airConditionOn = false;
     }
 
-    public void setNumberOfSeat(int seats){
-        this.numberOfSeats = seats;
-    }
-
     public String toString(){
-        return "ModelName: " + modelName + ", Company: " + company + ", Owner: " + owner + ", EngineType: " + engineType + ", TankSize: " + tankSize + ", FuelConsumption: " + fuelConsumption + ", NumberOfSeats: " + numberOfSeats;
+        return "ModelName: " + modelName + ", Company: " + company + ", Owner: " + owner + ", EngineType: " + engineType + ", TankSize: " + tankSize + ", FuelConsumption: " + fuelConsumption + ", NumberOfSeat: " + numberOfSeats  + ", HorsePower: " + power;
     }
 
     public double movableDistance(){
         return tankSize * fuelConsumption;
     }
 
-
     @Override
     double costFor100Km(PetroleumPrice pp) {
-        return pp.getGasolineCost(100.0 / fuelConsumption);
+        return pp.getDieselCost(100.0 / fuelConsumption);
     }
 
     @Override
     void setAirConditionON() {
         if(!airConditionOn){
             airConditionOn = true;
-            fuelConsumption *= 0.85; 
+            fuelConsumption *= 0.75;
         }
     }
 
@@ -38,7 +35,8 @@ public class Car extends Vehicle {
     void setAirConditionOFF() {
         if(airConditionOn){
             airConditionOn = false;
-            fuelConsumption /= 0.85; 
+            fuelConsumption /= 0.75;
         }
     }
+    
 }
