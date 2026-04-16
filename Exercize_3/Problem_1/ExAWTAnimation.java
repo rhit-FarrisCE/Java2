@@ -4,6 +4,7 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 
 /**
  * Animation using AWT, Thread and double buffering
@@ -11,9 +12,8 @@ import java.awt.image.BufferedImage;
  */
 public class ExAWTAnimation extends Frame implements Runnable{
     //== Parameters of the animation figure ===================
-
-
-
+    protected int radius = 10;
+    protected Point center = new Point(200, 100);
 
     //=========================================================
     // Image data for double buffering
@@ -36,14 +36,13 @@ public class ExAWTAnimation extends Frame implements Runnable{
             //=========================================================
             // Use gBuffer to draw the figure on the buffer
             // (The parameters in the attributes should be used here)
-
-
-
-
-
-
-
-
+            gBuffer.setColor(Color.red);
+            gBuffer.drawOval(ExAWTAnimation.this.center.x - ExAWTAnimation.this.radius, ExAWTAnimation.this.center.y - ExAWTAnimation.this.radius, 2 * ExAWTAnimation.this.radius, 2 * ExAWTAnimation.this.radius);
+            gBuffer.setColor(Color.black);
+            gBuffer.drawString("The circle:", 140, 90);
+            gBuffer.drawString(String.format("center = (%d,%d);", ExAWTAnimation.this.center.x, ExAWTAnimation.this.center.y), 160, 110);
+            gBuffer.drawString("radius = " + ExAWTAnimation.this.radius, 160, 130);
+            gCanvas.drawImage(ExAWTAnimation.this.buffer, 0, 0, (ImageObserver)null);
             //=========================================================
             // Copy the buffer to the canvas
             gCanvas.drawImage(buffer, 0, 0, null);
@@ -61,9 +60,10 @@ public class ExAWTAnimation extends Frame implements Runnable{
                 Thread.sleep(100);
                 //=========================================================
                 // Change the parameters of the animation figure for next frame of the animation
-
-
-
+                ++this.radius;
+                if (this.radius >= 100) {
+                    this.radius = 10;
+                }
 
                 //=========================================================
 
