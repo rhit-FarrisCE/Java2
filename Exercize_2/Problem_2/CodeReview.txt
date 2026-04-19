@@ -1,0 +1,13 @@
+Part 1 of problem 2
+1.
+Location ExGUIAWT_01
+Discription of problem: Location of the Text, Rectangle and circle are incorrect
+Solution: Changed these items to be in the same locations as the test ans file
+2.
+Location ExGUIAWT_01
+Discription of problem: The shapes are filled
+Solution: Change from the filled version of the shapes to the unfilled
+Part 2
+No issues found
+Part 3
+No issues found

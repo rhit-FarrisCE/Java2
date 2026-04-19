@@ -1,4 +1,4 @@
-package Exercize_2;
+package Exercize_2.Problem_1;
 
 import java.awt.Frame;
 import java.awt.Canvas;

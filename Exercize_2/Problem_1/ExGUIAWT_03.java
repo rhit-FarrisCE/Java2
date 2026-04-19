@@ -1,4 +1,4 @@
-package Exercize_2;
+package Exercize_2.Problem_1;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -23,22 +23,18 @@ public class ExGUIAWT_03  extends ExGUIAWT_02 implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        // Not used
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        // Not used
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        // Not used
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        // Not used
     }
     
 }
