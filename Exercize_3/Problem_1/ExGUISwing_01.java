@@ -1,17 +1,16 @@
 import javax.swing.JFrame;
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
-import java.awt.Font;
 
 public class ExGUISwing_01 extends JFrame {
-    private final javax.swing.JPanel display = new javax.swing.JPanel();
-    private final javax.swing.JLabel label = new javax.swing.JLabel("Power off");
-    private final javax.swing.JButton power = new javax.swing.JButton("Power");
-    private final javax.swing.JButton am = new javax.swing.JButton("AM");
-    private final javax.swing.JButton fm = new javax.swing.JButton("FM");
-    private final javax.swing.JButton cd = new javax.swing.JButton("CD");
-    private final javax.swing.JButton up = new javax.swing.JButton("Up");
-    private final javax.swing.JButton down = new javax.swing.JButton("Down");
+    protected final javax.swing.JPanel display = new javax.swing.JPanel();
+    protected final javax.swing.JLabel label = new javax.swing.JLabel("Power off");
+    protected final javax.swing.JButton power = new javax.swing.JButton("Power");
+    protected final javax.swing.JButton am = new javax.swing.JButton("AM");
+    protected final javax.swing.JButton fm = new javax.swing.JButton("FM");
+    protected final javax.swing.JButton cd = new javax.swing.JButton("CD");
+    protected final javax.swing.JButton up = new javax.swing.JButton("Up");
+    protected final javax.swing.JButton down = new javax.swing.JButton("Down");
 
     public ExGUISwing_01() {
         super.setTitle("Car Audio");
@@ -30,7 +29,6 @@ public class ExGUISwing_01 extends JFrame {
         this.display.setBorder(new BevelBorder(1));
         //Create JLabel Here
         this.label.setBounds(25, 50, 170, 40);
-        this.label.setFont(new Font("Dialog", 1, 30));
         this.label.setForeground(Color.green);
         //Add items to the window
         this.add(this.power);

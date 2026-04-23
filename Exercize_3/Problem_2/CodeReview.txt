@@ -1,0 +1,6 @@
+Defect 1:
+Issue: neither class generated with a main to run it
+Fix: added mains
+Defect 2:
+Issue: neither class properly displayed the locations of the buttons resulting in the box in the bottom right corner
+Fix: Changed locations of buttons
