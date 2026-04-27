@@ -1,3 +1,4 @@
+package Exercize_6.Problem_1;
      import java.util.*;
      import java.awt.*;
      import java.awt.event.*;
@@ -28,7 +29,7 @@
    This provides only the sample code for Java GUI shape.
    You should fill in all the code for envent handling and other operation.
 *****/
-     public class ProductOrder extends JFrame {
+public class ProductOrder extends JFrame {
   	protected String list_Contents, noOrder, orderInfo;
 	protected SortableDataStore[] v = new SortableDataStore[20];
 
@@ -71,11 +72,11 @@
 	infofield = new JTextField();
 
 	putb = new JButton("Put into Cart");
-//	putb.addActionListener(new PutButtonListener());
+   putb.addActionListener(new PutButtonListener());
 	sortb = new JButton("Sort Items");
-//	sortb.addActionListener(new SortButtonListener());
+   sortb.addActionListener(new SortButtonListener());
 	clearb = new JButton("Reset Cart");
-//	clearb.addActionListener(new ResetButtonListener());
+   clearb.addActionListener(new ResetButtonListener());
 
 	centerup.setLayout(new GridLayout(2,2));
 	centerup.add(noorder);
@@ -92,7 +93,7 @@
 	rightp.add(centerdown);
 
 	showb = new JButton("Show Cart");
-//	showb.addActionListener(new ShowButtonListener());
+   showb.addActionListener(new ShowButtonListener());
 
 
 	contentsarea = new JTextArea(10,1);
@@ -100,8 +101,50 @@
 	bottomp.add(showb);
 	bottomp.add(contentsarea);
 
-      }  // Product Order constructor
+   }  // Product Order constructor
 
+   public class PutButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent e) {
+         if (idx < 20) {
+            list_Contents = (String) plist.getSelectedValue();
+            noOrder = nofield.getText();
+            orderInfo = infofield.getText();
+            v[idx] = new SortableDataStore(list_Contents, noOrder, orderInfo);
+            idx++;
+         }
+      }
+   }
+
+   public class SortButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent e) {
+         if (idx > 0) {
+            Arrays.sort(v, 0, idx);
+         }
+         showCart();
+      }
+   }
+
+   public class ResetButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent e) {
+         idx = 0;
+         contentsarea.setText("");
+         v = new SortableDataStore[20];
+      }
+   }
+
+   public class ShowButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent e) {
+         showCart();
+      }
+   }
+
+   public void showCart() {
+      StringBuilder sb = new StringBuilder();
+      for (int i = 0; i < idx; i++) {
+         sb.append(v[i].toString()).append("\n");
+      }
+      contentsarea.setText(sb.toString());
+   }
 
 
 /*****
@@ -112,11 +155,11 @@ You can use inner classes for the listeners.
 
 
    public static void main (String args[]) {
-            ProductOrder f = new ProductOrder();
-            f.setTitle("Product Order");
-            f.setSize(500,400);
-            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            f.setVisible(true);
-        }
-   } // end of ProductOrder
+      ProductOrder f = new ProductOrder();
+      f.setTitle("Product Order");
+      f.setSize(500,400);
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      f.setVisible(true);
+   }
+}
      

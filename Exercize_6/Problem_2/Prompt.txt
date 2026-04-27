@@ -1,0 +1,12 @@
+Prompt 1
+You are a code generator, in the folder Exercize_6/Problem_2 create the following 2 files as specified: first a SortableDataStore.java file which implements Comparable<SortableDataStore> with a constructor of three strings and where the compareTo method compares based on the first string, however if the first strings are the same then the second string, and if the second string is also the same then the third string. It should also have a 2 string override method which concatinates the strings seperating them by commas.
+the Second file is a GUI file called ProductOrder.java which extends JFrame and also contains a main method to create an instance of itself. The GUI should contain the following elements:
+First a JList which contains the following products: {"IBM NoteBook", "Dell Product", "MS Windows", "Sun Workstation", "Oracle DB", "MySQL"};
+Second it should contain 2 text input boxes for number of items and order information
+Third Three buttons who's actions are controlled by action listener innerclasses, the first stores the selected list element along with the data in the two text boxes in a SortableDataStore item at the end of a list called cart with a max size of 20. The second button should Sort all the items in the list and display them in the Cart Gui item which is further specified later, the final button is a reset cart which clears the list and cart Gui item
+The final GUI element is a Button called Show cart which displays all the cart items in a text area to its right
+The GUI should have a label of ProductOrder at the top
+
+Issues: buttons the wrong size and has popup messages for each button press
+Second Prompt:
+Change the layout of the items so the list in the top left but small enough where it doesn't take up much extra space, but the text is still readable. Next move the input text boxes to the right of the list with the buttons that arn't show cart much larger in a row below these 2 elements. Finally make the bottom third of the Gui have the Show cart button large to the left and the cart to the right. Additionally remove any popup Windows when pressing buttons and allow items to be added to cart with blank text inputs as long as a list element is selected.

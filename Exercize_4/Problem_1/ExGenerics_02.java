@@ -2,7 +2,6 @@ import java.awt.Canvas;
 import java.util.ArrayList;
 import java.awt.Frame;
 import java.awt.Graphics;
-import java.awt.Point;
 
 /**
  * @author sxxxxxxx (Your student ID)
