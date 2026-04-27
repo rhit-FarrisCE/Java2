@@ -1,0 +1,26 @@
+You are a code generator, in the Problem_2 folder, here is the details of the system: We aim to build a smart library system with the following structure. This system will be constructed using Generics, Upper and Lower Bounded Wildcards, and Generic Methods. The details of this system are provided in the following: 1. Goal of the Program
+The core goal is for learners to comprehensively utilize Generics, Upper and Lower Bounded Wildcards, and Generic Methods to implement object storage, retrieval, and transfer logic that guarantees type safety.
+Specifically, this program introduces "Generic Methods" and "Lower Bounded Wildcards (? super T)", which were not covered in the previous ToyBox problem. Students will learn how to safely move data between two different generic containers using the PECS (Producer Extends, Consumer Super) principle.
+
+2. Contents of the Program
+This program includes the following components and requirements:
+1) Class Hierarchy
+ Media (Parent Class): Has title and year attributes.
+ Book (Child Class): Extends Media and adds an author attribute.
+ Magazine (Child Class): Extends Media and adds an issueNumber attribute.
+2) Generic Class Design
+ Shelf<T>: A generic shelf class designed to hold only a specific type of media.
+ It contains methods such as add(T item) to put an item on the shelf, take() to remove an item, and getCount() to return the current number of items.
+3) Upper Bounded Wildcards (? extends)
+ A method to read and print the details of all media currently on a shelf.
+ Example signature: public static void printMediaDetails(Shelf<? extends Media> shelf)
+ Learning Point: Understanding that extends is appropriate for reading (producing) data.
+4) Generic Methods & Lower Bounded Wildcards (? super)
+ Implement a generic method that safely moves items from one shelf to another.
+ Example signature: public static <T> void transferItems(Shelf<T> source, Shelf<? super T> destination)
+ Learning Point: Learning how to declare a type parameter <T> at the method level and understanding that super is necessary when writing/adding data (Consumer). For example, it allows safely moving items from a Book shelf into a broader Media shelf.
+5) Test Scenarios (Main Method Requirements)
+ (1) Create a Shelf<Book> and a Shelf<Magazine>, and add corresponding objects to them.
+ (2) Call printMediaDetails to successfully print the contents of each shelf.
+ (3) Create a general Shelf<Media>.
+ (4) Use the transferItems generic method to move items from Shelf<Book> to Shelf<Media> (This operation must succeed).

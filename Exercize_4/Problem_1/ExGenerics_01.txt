@@ -1,0 +1,1 @@
+The reasoning for the running exception in the file is that the ArrayList does not have generic type, it should be declared instead with a type and all items in the list should be of that type or a type of this subclass

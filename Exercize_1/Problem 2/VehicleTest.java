@@ -1,3 +1,5 @@
+import Exercize_5.Car;
+
 public class VehicleTest {
 
     public static void describe(Vehicle v) {
