@@ -2,7 +2,7 @@ package Exercize_5;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-class ToyBox<T> /* Insert code for being iterable class */ {
+class ToyBox<T> implements Iterable<T> {
 
     private ArrayList<T> v = new ArrayList<T>();          
 
@@ -20,9 +20,13 @@ class ToyBox<T> /* Insert code for being iterable class */ {
 
     /* write code for iterator method -- it returns an object of the ToyBoxIterator */
     // ...................................
-
+    @Override
+    public Iterator<T> iterator() {
+        return new ToyBoxIterator();
+    }
+    
   // ToyBoxIterator class -- inner class
-  private class ToyBoxIterator /* complete here to implment Iterator interface */ {
+  private class ToyBoxIterator implements Iterator<T> {
       int idx; // counter to point current posion of an element of the vector for iterating
 
       // Constructor
@@ -32,8 +36,23 @@ class ToyBox<T> /* Insert code for being iterable class */ {
 
       // Method to test whether more elements are available
       public boolean hasNext() {
-         // complete hasNext() method 
-         // ...................................
+        return idx < v.size();
+      }
+
+      @Override
+      public T next() {
+        if (hasNext()) {
+            return v.get(idx++);
+        }
+        else {
+            return null;
+        }
+      }
+
+      public void remove() {
+        if (idx > 0) {
+            v.remove(--idx);
+        }
       }
 
       // Next implement 1) next() method and 2) remove() method
